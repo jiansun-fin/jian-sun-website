@@ -11,3 +11,15 @@ dist/
 # Local notes you don't want published
 _local/
 *.local.md
+
+# LaTeX temporary files
+*.aux
+*.fls
+*.log
+*.fdb_latexmk
+*.synctex.gz
+
+# Local working files — keep on this computer, never upload
+*.tex
+CLAUDE.md
+README.md
