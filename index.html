@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jian Sun — Associate Professor of Finance, SMU</title>
+<meta name="description" content="Jian Sun — Associate Professor of Finance, Singapore Management University. Research in information economics, market microstructure, and market design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16181d;
+    --ink-soft:#3d4048;
+    --muted:#8b8983;
+    --paper:#fafaf8;
+    --paper-2:#f4f3ef;
+    --line:#e4e2dc;
+    --line-strong:#d3d0c8;
+    --accent:#2d4a6b;
+    --accent-soft:#5a7ba0;
+    --accent-wash:#eef1f5;
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--accent);color:#fff}
+  a{color:inherit}
+
+  /* ===== LAYOUT SHELL ===== */
+  .shell{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    max-width:1180px;
+    margin:0 auto;
+    min-height:100vh;
+  }
+
+  /* ===== LEFT RAIL ===== */
+  .rail{
+    position:sticky;
+    top:0;
+    align-self:start;
+    height:100vh;
+    padding:44px 44px 36px 40px;
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+  }
+  .rail .avatar{
+    width:192px;
+    height:192px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:18px;
+  }
+  .rail .idx{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:0.04em;
+    margin-bottom:14px;
+  }
+  .rail h1{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:34px;
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    margin-bottom:16px;
+  }
+  .rail .role{
+    font-size:13.5px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .rail .role .em{color:var(--ink);font-weight:500}
+  .rail .inst{
+    font-size:12.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    margin-bottom:28px;
+  }
+  .rail .inst .inst-univ{color:var(--ink);font-weight:500}
+  .rail .inst .inst-courtesy{color:var(--ink-soft)}
+
+  .rail nav{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .rail nav a{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.02em;
+    text-decoration:none;
+    color:var(--muted);
+    padding:7px 0;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    transition:color .18s ease;
+  }
+  .rail nav a::before{
+    content:"";
+    width:16px;
+    height:1px;
+    background:var(--line-strong);
+    transition:width .22s ease,background .22s ease;
+  }
+  .rail nav a:hover,
+  .rail nav a.active{color:var(--ink)}
+  .rail nav a:hover::before,
+  .rail nav a.active::before{width:28px;background:var(--accent)}
+
+
+  /* ===== CONTENT COLUMN ===== */
+  main{
+    padding:64px 64px 96px 60px;
+    max-width:760px;
+  }
+
+  .about-footer{
+    margin-top:30px;
+    padding:16px 0 0 18px;
+    border-left:2px solid var(--accent);
+    font-family:var(--mono);
+    font-size:12px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .af-row{display:flex;align-items:baseline;gap:14px}
+  .af-label{
+    color:var(--muted);
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    width:68px;
+    flex-shrink:0;
+  }
+  .af-val{color:var(--ink-soft);font-size:12.5px}
+  .deg{display:inline-block;white-space:nowrap}
+  .af-val a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .18s,color .18s}
+  .af-val a:hover{color:var(--accent);border-color:var(--accent)}
+
+  .block{padding-bottom:20px;margin-bottom:52px;scroll-margin-top:40px}
+  .block:last-child{margin-bottom:0}
+
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .eyebrow .num{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--accent);
+    font-weight:500;
+  }
+  .eyebrow .label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .eyebrow .rule{
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  /* intro */
+  .intro p{
+    font-family:var(--serif);
+    font-size:21px;
+    line-height:1.55;
+    font-weight:400;
+    letter-spacing:-0.005em;
+    color:var(--ink);
+    margin-bottom:20px;
+  }
+  .intro p:last-child{margin-bottom:0}
+  .intro p.sub{
+    font-family:var(--sans);
+    font-size:15.5px;
+    line-height:1.65;
+    color:var(--ink-soft);
+  }
+  .intro em{font-style:italic;color:var(--accent)}
+
+  /* interests as tags */
+  .tags{display:flex;flex-wrap:wrap;gap:10px}
+  .tag{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    padding:7px 13px;
+    border-radius:2px;
+  }
+
+  /* ===== PUBLICATIONS ===== */
+  .pub-group-label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:8px 0 4px;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .pub-group-label .count{color:var(--line-strong)}
+  .pub-group + .pub-group{margin-top:36px}
+
+  .pub{
+    position:relative;
+    padding:18px 0 18px 20px;
+    border-top:1px solid var(--line);
+    transition:padding-left .2s ease;
+  }
+  .pub::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:18px;
+    bottom:18px;
+    width:2px;
+    background:transparent;
+    transition:background .2s ease;
+  }
+  .pub:hover{padding-left:26px}
+  .pub:hover::before{background:var(--accent)}
+  .pub:last-child{border-bottom:1px solid var(--line)}
+
+  .pub .p-title{
+    display:inline;
+    font-family:var(--serif);
+    font-size:18.5px;
+    font-weight:500;
+    line-height:1.32;
+    letter-spacing:-0.01em;
+    color:var(--accent);
+    text-decoration:underline;
+    text-decoration-color:var(--line);
+    text-underline-offset:3px;
+    margin-bottom:7px;
+    transition:text-decoration-color .18s;
+  }
+  a.p-title:hover{text-decoration-color:var(--accent)}
+  .pub .p-authors{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+    margin-bottom:9px;
+  }
+  .pub .p-authors a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .18s,color .18s}
+  .pub .p-authors a:hover{color:var(--accent);border-color:var(--accent)}
+  .pub .p-meta{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .p-links{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+  }
+  .p-link{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.02em;
+    color:var(--accent);
+    text-decoration:none;
+    padding:3px 9px;
+    border:1px solid var(--accent);
+    border-radius:2px;
+    transition:background .18s,color .18s;
+  }
+  .p-link:hover{background:var(--accent);color:#fff}
+  .p-abstract{
+    display:none;
+    margin-top:12px;
+    padding:14px 16px;
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:2px;
+    font-size:13.5px;
+    line-height:1.65;
+    color:var(--ink-soft);
+  }
+  .pub.open .p-abstract{display:block}
+  .p-toggle{
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--muted);
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:3px 0;
+    transition:color .18s;
+    letter-spacing:0.02em;
+  }
+  .p-toggle:hover{color:var(--accent)}
+  .venue-tag{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.03em;
+    padding:3px 8px;
+    border-radius:2px;
+    white-space:nowrap;
+  }
+  .venue-tag.journal{
+    background:var(--accent);
+    color:#fff;
+  }
+  .venue-tag.rr{
+    background:var(--accent-wash);
+    color:var(--accent);
+    border:1px solid #cdd8e4;
+  }
+  .venue-tag.wp{
+    background:var(--paper-2);
+    color:var(--muted);
+    border:1px solid var(--line);
+  }
+  .venue-year{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+  }
+
+  /* ===== TEACHING ===== */
+  .teach-inst{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 16px;
+  }
+  .teach-group + .teach-group{margin-top:32px}
+  .course{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:20px;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .course:last-child{border-bottom:1px solid var(--line)}
+  .course .c-main{
+    font-family:var(--serif);
+    font-size:17px;
+    color:var(--ink);
+    line-height:1.35;
+  }
+  .course .c-sub{
+    display:block;
+    font-family:var(--sans);
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:3px;
+  }
+  .course .c-year{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+
+  /* ===== RECOGNITION (awards + editorial) ===== */
+  .sub-label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 16px;
+  }
+  .sub-block + .sub-block{margin-top:34px}
+  .award{
+    display:flex;
+    gap:18px;
+    align-items:baseline;
+    padding:12px 0;
+    border-top:1px solid var(--line);
+  }
+  .award:last-child{border-bottom:1px solid var(--line)}
+  .award .a-year{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--accent);
+    flex-shrink:0;
+    width:74px;
+    padding-top:1px;
+  }
+  .award .a-body{
+    font-size:14.5px;
+    color:var(--ink);
+    line-height:1.5;
+  }
+  .award .a-body .a-sub{
+    display:block;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:1px;
+  }
+  .editorial{
+    padding:14px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .editorial .e-role{
+    font-family:var(--serif);
+    font-size:17px;
+    color:var(--ink);
+    line-height:1.4;
+  }
+  .editorial .e-sub{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+
+  /* ===== SERVICE ===== */
+  .svc-block + .svc-block{margin-top:28px}
+  .svc-line{
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    padding:10px 0;
+    border-top:1px solid var(--line);
+  }
+  .svc-line:last-child{border-bottom:1px solid var(--line)}
+  .svc-line .svc-head{
+    color:var(--ink);
+    font-weight:500;
+  }
+  .svc-refs{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.7;
+  }
+
+  /* ===== FADE-IN ===== */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== MOBILE HEADER (hidden on desktop) ===== */
+  .m-head{display:none}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:900px){
+    .shell{grid-template-columns:1fr;max-width:640px}
+    .rail{
+      position:static;
+      height:auto;
+      border-right:none;
+      border-bottom:1px solid var(--line);
+      padding:52px 32px 34px;
+    }
+    .rail nav{
+      flex-direction:row;
+      flex-wrap:wrap;
+      gap:6px 22px;
+      margin:28px 0 0;
+    }
+    .rail nav a::before{display:none}
+    .rail nav a{padding:4px 0}
+    main{padding:44px 32px 72px}
+  }
+  @media (max-width:560px){
+    .rail{padding:44px 24px 30px}
+    main{padding:38px 24px 60px}
+    .intro p{font-size:19px}
+    .rail h1{font-size:30px}
+    .course{flex-direction:column;gap:2px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- LEFT RAIL -->
+  <aside class="rail">
+    <img class="avatar" src="photo.jpg" alt="Jian Sun">
+    <h1>Jian Sun</h1>
+    <div class="role"><span class="em">Associate Professor of Finance</span></div>
+    <div class="inst">Lee Kong Chian School of Business<br><span class="inst-courtesy">Courtesy appointment, School of Economics</span><br><span class="inst-univ">Singapore Management University</span></div>
+
+    <nav id="nav">
+      <a href="#about" data-t="about">About</a>
+      <a href="#research" data-t="research">Research</a>
+      <a href="#teaching" data-t="teaching">Teaching</a>
+    </nav>
+
+  </aside>
+
+  <!-- CONTENT -->
+  <main>
+
+    <section class="block reveal" id="about">
+      <div class="eyebrow"><span class="num">01</span><span class="label">About</span><span class="rule"></span></div>
+      <div class="intro">
+        <p>Hello, I'm Jian Sun (孙健).</p>
+        <p class="sub">I'm an Associate Professor of Finance at the Lee Kong Chian School of Business, Singapore Management University. I received my Ph.D. in Finance from MIT Sloan School of Management.</p>
+      </div>
+      <div class="tags" style="margin-top:28px">
+        <span class="tag">Information Design</span>
+        <span class="tag">Market Microstructure</span>
+        <span class="tag">Market Design</span>
+      </div>
+      <div class="about-footer">
+        <div class="af-row"><span class="af-label">Education</span><span class="af-val"><span class="deg">Ph.D. in Finance</span> — Massachusetts Institute of Technology</span></div>
+        <div class="af-row"><span class="af-label"></span><span class="af-val"><span class="deg">M.S. in Economics</span> — Toulouse School of Economics</span></div>
+        <div class="af-row"><span class="af-label"></span><span class="af-val"><span class="deg">B.S. in Economics & Math</span> — Tsinghua University</span></div>
+        <div class="af-row"><span class="af-label">Email</span><span class="af-val">jiansun[at]smu[dot]edu[dot]sg</span></div>
+        <div class="af-row"><span class="af-label">CV</span><span class="af-val"><a href="JianSun_CV.pdf" target="_blank">Curriculum Vitae ↗</a></span></div>
+      </div>
+    </section>
+
+    <section class="block reveal" id="research">
+      <div class="eyebrow"><span class="num">02</span><span class="label">Research</span><span class="rule"></span></div>
+
+      <div class="pub-group">
+        <div class="pub-group-label">Publications</div>
+
+        <div class="pub">
+          <a class="p-title" href="Papers/OBO_JF.pdf" target="_blank">Would Order-By-Order Auctions Be Competitive?</a>
+          <div class="p-authors">with <a href="https://www.rhsmith.umd.edu/directory/thomas-ernst" target="_blank">Thomas Ernst</a> and <a href="https://www.cmu.edu/mscf/people/faculty/cspatt.html" target="_blank">Chester Spatt</a></div>
+          <div class="p-meta">
+            <span class="venue-tag journal">Journal of Finance</span>
+            <span class="venue-year">2025</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="Papers/OBO_JF_IA.pdf" target="_blank">Internet Appendix</a>
+            <a class="p-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4300505" target="_blank">SSRN</a>
+            <a class="p-link" href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13449" target="_blank">Publisher</a>
+          </div>
+          <div class="p-abstract">We model two methods of executing segregated retail orders: brokers’ routing, whereby brokers allocate orders using the market maker’s overall performance, and order-by-order auctions, where market makers bid on individual orders, a recent U.S. Securities and Exchange Commission proposal. Order-by-order auctions improve allocative efficiency, but face a winner’s curse reducing retail investor welfare, particularly when liquidity is limited. Additional market participants competing for retail orders fail to improve total efficiency and investor welfare when entrants possess information superior to incumbent wholesalers. Our results hold when new entrants are less informed or the information structure differs. We also examine the cross-subsidization of brokers’ routing.</div>
+        </div>
+
+        <div class="pub">
+          <a class="p-title" href="Papers/Matchmaking_RFS.pdf" target="_blank">From Market Making to Matchmaking: Does Bank Regulation Harm Market Liquidity?</a>
+          <div class="p-authors">with <a href="https://business.cornell.edu/profiles/gs25/" target="_blank">Gideon Saar</a>, <a href="https://www.sauder.ubc.ca/people/ron-yang" target="_blank">Ron Yang</a> and <a href="https://mitsloan.mit.edu/faculty/directory/haoxiang-zhu" target="_blank">Haoxiang Zhu</a></div>
+          <div class="p-meta">
+            <span class="venue-tag journal">Review of Financial Studies</span>
+            <span class="venue-year">2023</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3399063" target="_blank">SSRN</a>
+            <a class="p-link" href="https://academic.oup.com/rfs/article-abstract/36/2/678/6697896" target="_blank">Publisher</a>
+          </div>
+          <div class="p-abstract">Postcrisis bank regulations raised market-making costs for bank-affiliated dealers. We show that this can, somewhat surprisingly, improve overall investor welfare and reduce average transaction costs despite the increased cost of immediacy. Bank dealers in OTC markets optimize between two parallel trading mechanisms: market making and matchmaking. Bank regulations that increase market-making costs change the market structure by intensifying competitive pressure from nonbank dealers and incentivizing bank dealers to shift their business activities toward matchmaking. Thus, postcrisis bank regulations have the (unintended) benefit of replacing costly bank balance sheets with a more efficient form of financial intermediation.</div>
+        </div>
+
+        <div class="pub">
+          <a class="p-title" href="Papers/AER_main.pdf" target="_blank">Learning from Manipulable Signals</a>
+          <div class="p-authors">with <a href="https://sites.google.com/site/mehmetekmekci45/" target="_blank">Mehmet Ekmekci</a>, <a href="https://sites.google.com/site/leandrogorno/" target="_blank">Leandro Gorno</a>, <a href="https://sites.google.com/site/lucasjovermaestri/" target="_blank">Lucas Maestri</a> and <a href="https://sites.google.com/view/dongwei" target="_blank">Dong Wei</a></div>
+          <div class="p-meta">
+            <span class="venue-tag journal">American Economic Review</span>
+            <span class="venue-year">2022</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="Papers/AER_IA.pdf" target="_blank">Internet Appendix</a>
+            <a class="p-link" href="https://arxiv.org/abs/2007.08762" target="_blank">arXiv</a>
+            <a class="p-link" href="https://www.aeaweb.org/articles?id=10.1257/aer.20211158" target="_blank">Publisher</a>
+          </div>
+          <div class="p-abstract">We study a dynamic stopping game between a principal and an agent. The principal gradually learns about the agent’s private type from a noisy performance measure that can be manipulated by the agent via a costly and hidden action. We fully characterize the unique Markov equilibrium of this game. We find that terminations/market crashes are often preceded by a spike in manipulation intensity and (expected) performance. Moreover, due to endogenous signal manipulation, too much transparency can inhibit learning and harm the principal. As the players get arbitrarily patient, the principal elicits no useful information from the observed signal.</div>
+        </div>
+      </div>
+
+      <div class="pub-group">
+        <div class="pub-group-label">Working Papers</div>
+
+        <div class="pub">
+          <a class="p-title" href="Papers/BestEx202604.pdf" target="_blank">What Does Best Execution Look Like?</a>
+          <div class="p-authors">with <a href="https://www.rhsmith.umd.edu/directory/thomas-ernst" target="_blank">Thomas Ernst</a>, <a href="https://www.bc.edu/bc-web/schools/carroll-school/faculty-research/faculty-directory/andrey-malenko.html" target="_blank">Andrey Malenko</a> and <a href="https://www.cmu.edu/mscf/people/faculty/cspatt.html" target="_blank">Chester Spatt</a></div>
+          <div class="p-meta">
+            <span class="venue-tag rr">R&amp;R · Journal of Finance</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6635238" target="_blank">SSRN</a>
+          </div>
+          <div class="p-abstract">U.S. retail brokers provide “best execution” for client orders, though how this actually works remains unclear. We model the interaction between brokers and wholesalers executing orders as imperfect competition, where privately-informed wholesalers compete for future order flow through current price improvement, with brokers designing allocation rules to enhance competition. Using data from three large retail brokers, we document three main findings. First, brokers allocate more orders to wholesalers with better past performance. Second, wholesalers recognize this and respond strategically to broker routing criteria and competitive pressures. Finally, there are differences among stocks and brokers in managing competition.</div>
+        </div>
+
+        <div class="pub">
+          <a class="p-title" href="Papers/RLP.pdf" target="_blank">Why Did Retail Liquidity Programs Fail?</a>
+          <div class="p-authors">with <a href="https://www.rhsmith.umd.edu/directory/thomas-ernst" target="_blank">Thomas Ernst</a> and <a href="https://www.cmu.edu/mscf/people/faculty/cspatt.html" target="_blank">Chester Spatt</a></div>
+          <div class="p-meta">
+            <span class="venue-tag wp">Working Paper</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4749232" target="_blank">SSRN</a>
+          </div>
+          <div class="p-abstract">Retail Liquidity Programs (RLPs) allow on-exchange, sub-penny price improvement for retail orders, yet capture only a negligible fraction of retail flow. We find RLPs deliver less price improvement than off-exchange wholesalers, wholesalers route more orders to RLPs when market conditions deteriorate, and wholesalers internalize even when an RLP offers a superior price. Evidence from the SEC's Tick Size Pilot further shows that off-exchange effective spreads are insensitive to wider quoting increments, whereas RLP effective spreads narrow. We rationalize these findings with a model of wholesaler routing built around three frictions: non-displayed prices, absence of order protection, and wholesaler routing discretion.</div>
+        </div>
+
+        <div class="pub">
+          <a class="p-title" href="Papers/AlgoTrans.pdf" target="_blank">Model Transparency with Manipulable Input</a>
+          <div class="p-meta">
+            <span class="venue-tag wp">Working Paper</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4921774" target="_blank">SSRN</a>
+          </div>
+          <div class="p-abstract">A lender uses a predictive model to assess borrower quality based on manipulable data. The model is unobservable to the borrower, but the lender can disclose information about it. Both full disclosure and no disclosure lead to excessive data manipulation. Under full disclosure, the borrower can perfectly "game" the model. Under no disclosure, the lender's equilibrium use of data exceeds the ex ante optimal level, which also exacerbates the borrower's incentive to manipulate. We fully characterize the optimal policy, which preserves significant uncertainty in the borrower's posterior by introducing gaps in beliefs. When restricted to monotone policies, the optimal disclosure policy always involves discrete signals, and we provide conditions under which no disclosure becomes optimal. Our results are robust to extensions with commitment to lending decisions and costly verification.</div>
+        </div>
+
+        <div class="pub">
+          <a class="p-title" href="#" target="_blank">A Dynamic Delegated Investment Model of SPACs</a>
+          <div class="p-authors">with <a href="https://www.danluo.net/" target="_blank">Dan Luo</a></div>
+          <div class="p-meta">
+            <span class="venue-tag wp">Working Paper</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3929762" target="_blank">SSRN</a>
+          </div>
+          <div class="p-abstract">[Abstract]</div>
+        </div>
+
+        <div class="pub">
+          <a class="p-title" href="#" target="_blank">Market for Manipulable Information</a>
+          <div class="p-authors">with <a href="https://mitsloan.mit.edu/faculty/directory/hui-chen" target="_blank">Hui Chen</a></div>
+          <div class="p-meta">
+            <span class="venue-tag wp">Working Paper</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4712430" target="_blank">SSRN</a>
+          </div>
+          <div class="p-abstract">[Abstract]</div>
+        </div>
+
+        <div class="pub">
+          <a class="p-title" href="#" target="_blank">Regulating the Trade in Cap-and-Trade</a>
+          <div class="p-authors">with <a href="https://faculty.smu.edu.sg/profile/yueshen-bart-zhou-7621" target="_blank">Bart Zhou Yueshen</a></div>
+          <div class="p-meta">
+            <span class="venue-tag wp">Working Paper</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-abstract">[Abstract]</div>
+        </div>
+
+        <!-- HIDDEN: The Financialization of Cryptocurrencies
+        <div class="pub">
+          <a class="p-title" href="#" target="_blank">The Financialization of Cryptocurrencies</a>
+          <div class="p-authors">with <a href="https://leihuang.xyz/" target="_blank">Lei Huang</a>, <a href="https://www.hkubs.hku.hk/people/tse-chun-lin/" target="_blank">Tse-Chun Lin</a> and <a href="https://sites.google.com/view/fangzhoulu/" target="_blank">Fangzhou Lu</a></div>
+          <div class="p-meta">
+            <span class="venue-tag wp">Working Paper</span>
+            <button class="p-toggle" onclick="this.closest('.pub').classList.toggle('open')">▸ Abstract</button>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="#" target="_blank">SSRN</a>
+          </div>
+          <div class="p-abstract">[Abstract]</div>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <section class="block reveal" id="teaching">
+      <div class="eyebrow"><span class="num">03</span><span class="label">Teaching</span><span class="rule"></span></div>
+
+      <div class="teach-group">
+        <div class="teach-inst">Singapore Management University</div>
+        <div class="course">
+          <div class="c-main">FNCE 101 · Finance<span class="c-sub">Undergraduate</span></div>
+          <div class="c-year">2023–present</div>
+        </div>
+        <div class="course">
+          <div class="c-main">FNCE 704 · Financial Securities Trading<span class="c-sub">Ph.D.</span></div>
+          <div class="c-year">2025</div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // active nav on scroll
+  const links = [...document.querySelectorAll('#nav a')];
+  const map = {};
+  links.forEach(l=>{ map[l.getAttribute('href').slice(1)] = l; });
+  const secObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const id = e.target.id;
+        if(map[id]) map[id].classList.add('active');
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  ['about','research','teaching'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) secObserver.observe(el);
+  });
+</script>
+
+</body>
+</html>

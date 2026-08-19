@@ -1,0 +1,13 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+
+# Node / build (not used now, but harmless to ignore)
+node_modules/
+dist/
+
+# Local notes you don't want published
+_local/
+*.local.md
